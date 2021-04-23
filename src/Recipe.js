@@ -12,8 +12,9 @@ const Recipe = ({title, calories, image, ingredients}) => {
             </ol>
             <p>{calories}</p>
             <img className={style.image} src={image} alt=""/>
+            <br/>
         </div>
     );
-};
+}
 
 export default Recipe;

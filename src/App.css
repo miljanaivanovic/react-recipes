@@ -1,6 +1,24 @@
 .App{
   min-height: 100vh;
-  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  background-image: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+}
+nav{
+  display: flex;
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.418);
+  align-items: center;
+  min-height: 10vh;
+}
+.logo{
+  font-family: RobotoThin;
+  font-size: 60px;
+  letter-spacing: -19px;
+}
+.nav-items{
+  font-family: RobotoRegular;
+  font-size: 20px;
+  justify-content: space-around;
+  list-style: none;
 }
 .search-form{
   min-height: 10vh;
@@ -13,14 +31,67 @@
   border: none;
   padding: 10px;
 }
-.search-button{
-  background: rgb(245, 171, 220);
+.search-button, .submit-button{
+  background: rgba(102, 91, 78, 0.329);
+  font-family: RobotoRegular;
   border: none;
   padding: 10px 20px;
   color: white;
+  width: 100px;
+}
+.insert-button{
+  width: 80px;
+  background: rgba(163, 136, 104, 0.74);
+  font-family: RobotoRegular;
+  border: none;
+  padding: 5px 20px;
+  color: white;
 }
 .recipes{
+  font-family: RobotoRegular;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+.box{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.create-box{
+  position: fixed;
+  box-shadow: 0px 5px 20px rgb(71, 71, 71);
+  background-color: white;
+  font-family: RobotoRegular;
+  justify-content: space-around;
+  width: 500px;
+  height: 500px;
+  border-radius: 10px;
+  margin-top: 50px;
+  margin-left: 100px;
+  text-align: center;
+  min-width: 40%;
+}
+.create-box input{
+  width: 300px;
+}
+.new-recipe{
+  position: fixed;
+  border-radius: 10px;
+  box-shadow: 0px 5px 20px rgb(71, 71, 71);
+  margin-top: 50px;
+  margin-left: 50%;
+  width: 500px;
+  height: 500px;
+  font-family: RobotoRegular;
+  flex-direction: column;
+  justify-content: space-around;
+  background: white;
+  text-align: center;
+  min-width: 40%;
+}
+.new-image{
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
 }
