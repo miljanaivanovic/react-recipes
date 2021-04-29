@@ -1,22 +1,36 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState, useContext } from "react";
 import "./App.css";
 import Recipe from "./Recipe";
+import { RecipeContext } from "./RecipeContext";
 
 const Home = () => {
   const APP_ID = "b0cd91a0";
   const APP_KEY = "8703b28d29e59a579e76329700f4c60b";
 
-  const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
+
+  const [recipes, setRecipes, myRecipes] = useContext(RecipeContext);
 
   const getRecipes = useCallback(async () => {
     const response = await fetch(
       `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     const data = await response.json();
-    setRecipes(data.hits);
-  }, [query]);
+
+    const remappedMyRecipes = myRecipes.map((recipe) => {
+      return {
+        recipe: {
+          label: recipe.title,
+          ingredients: [{ text: recipe.ingredients }],
+          calories: recipe.calories,
+          image: recipe.image,
+        },
+      };
+    });
+
+    setRecipes([...remappedMyRecipes, ...data.hits]);
+  }, [myRecipes, query, setRecipes]);
 
   const updateSearch = (e) => {
     setSearch(e.target.value);
@@ -31,6 +45,8 @@ const Home = () => {
   useEffect(() => {
     getRecipes();
   }, [getRecipes, query]);
+
+  console.log(recipes);
 
   return (
     <div className="nav-item">

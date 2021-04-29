@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./App.css";
+import { RecipeContext } from "./RecipeContext";
 
 const CreateRecipes = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [calories, setCalories] = useState("");
   const [image, setImage] = useState("");
-  const [myRecipes, setMyRecipes] = useState([]);
+
+  const [, , myRecipes, setMyRecipes] = useContext(RecipeContext);
 
   const updateTitle = (e) => {
     setTitle(e.target.value);
